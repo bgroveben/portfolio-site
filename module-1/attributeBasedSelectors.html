@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attribute Based Selectors</title>
+  </head>
+  <body>
+
+    <h1 demo-attribute="demo-value">Hello, H1</h1>
+    <h2 demo-attribute="demo-value">Hello, H2</h2>
+    <h1 custom="banner">Custom Attribute</h1>
+    <h1 class="col-md-4">Class Starts With Col</h1>
+    <h1 class="text-center-example">Class Contains Secondary</h1>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+    <script>
+      $(function() {  // will execute when the page is ready
+        // selects **all** elements with an attribute matching the specified value:
+        $('[demo-attribute="demo-value"]').text('Selects **all** elements with an attribute matching the specified value.')
+
+        // selects all **h1** elements with an attribute matching the specified value:
+        $('h1[demo-attribute="demo-value"]').text('Selects all **h1** elements with an attribute matching the specified value.')
+
+        // find elements based on attribute equality:
+        $('[custom="banner"]').text('Found by equality.');
+
+        // find elements based on what the attribute starts with:
+        $('[class^="col"]').text('Found by starts with.');
+
+        // find elements based on what the attribute contains:
+        $('[class*="center"]').text('Found by contains.');
+      });
+    </script>
+  </body>
+</html>
