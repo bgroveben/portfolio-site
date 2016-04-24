@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Interactive Demonstration</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h4>CSS Selectors and jQuery</h4>
+      <p>Below is an interactive demonstration of a few CSS selectors and how they behave in jQuery.</p>
+      <p>The text on the buttons is the jQuery selector syntax used.</p>
+      <p>Clicking on each button will highlight the elements indicated by the selector.</p>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+          <p><strong>Element Examples</strong></p>
+          <div class="btn btn-success" id="nav-button">nav</div>
+          <div class="btn btn-success" id="section-button">section</div>
+
+          <p><strong>Class Examples</strong></p>
+          <div class="btn btn-success" id="first-button">.first</div>
+          <div class="btn btn-success" id="second-button">.second</div>
+          <div class="btn btn-success" id="div-second-button">div.second</div>
+          <div class="btn btn-success" id="span-second-button">span.second</div>
+
+          <p><strong>Hierarchy Examples</strong></p>
+          <div class='btn btn-success' id="navdivdescendant-button">nav div</div>
+          <div class='btn btn-success' id="navdivdirect-button">nav > div</div>
+
+          <p><strong>Attribute Examples</strong></p>
+          <div class="btn btn-success" id="attribute-equality-button">[data-bind='demo']</div>
+          <div class="btn btn-success" id="attribute-starts-button">[data-bind^='demo']</div>
+          <div class="btn btn-success" id="attribute-contains-button">[data-bind*='demo']</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="js/interactiveDemo.js"></script>
+  </body>
+</html>
