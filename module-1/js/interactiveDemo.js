@@ -57,3 +57,70 @@ function createHtml(element) {
 }
 // End HTML display utilities file
 // Begin CSS selectors and jQuery file:
+$(function() {
+  $('#section-button').click(function() {
+    resetHtml();
+    $('section').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#nav-button').click(function() {
+    resetHtml();
+    $('nav').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#first-button').click(function() {
+    resetHtml();
+    $('.first').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#second-button').click(function() {
+    resetHtml();
+    $('.second').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#div-second-button').click(function() {
+    resetHtml();
+    $('div.second').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#span-second-button').click(function() {
+    resetHtml();
+    $('span.second').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#navdivdescendent-button').click(function() {
+    resetHtml();
+    $('nav div').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#navdivdirect-button').click(function() {
+    resetHtml();
+    $('nav > div').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#attribute-equality-button').click(function() {
+    resetHtml();
+    $('[data-bind="demo"]').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#attribute-starts-button').click(function() {
+    resetHtml();
+    $('[data-bind^="another"]').addClass('highlight');
+    displayHtml();
+  });
+
+  $('#attribute-contains-button').click(function() {
+    resetHtml();
+    $('[data-bind*="demo"]').addClass('highlight');
+    displayHtml();
+  });
+});
