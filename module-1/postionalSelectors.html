@@ -6,11 +6,26 @@
   </head>
   <body>
 
+    <h1>Hello, H1</h1>
+
+    <header>
+      <h1>H1 Nested Inside Header Tags</h1>
+    </header>
+
+    <header>
+      <div>
+        <h2>H2 Nested Inside Div Nested Inside Header</h2>
+      </div>
+    </header>
+
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 
     <script>
       $(function() {  // will execute when the page is ready
-
+        // parent/child
+        $('header > h1').text('Parent Child');
+        // parent/descendant
+        $('header h2').text('Descendant');
       });
     </script>
   </body>
