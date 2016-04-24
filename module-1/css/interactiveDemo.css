@@ -1,0 +1,21 @@
+.highlight {
+  background-color: #ffff88;
+}
+
+.tag {
+  color: blue;
+}
+
+.attribute-value {
+  color: maroon;
+}
+
+.btn {
+  margin-bottom: 5px;
+  font-family: "Monaco";
+}
+
+#html-content, .html-content {
+  font-family: "Monaco";
+  font-size: 1.2em;
+}
