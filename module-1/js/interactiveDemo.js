@@ -18,7 +18,7 @@ function resetHtml() {
 
 function displayHtml(data) {
   // default to the entire group
-  if(data === undefined) data = '#html-content';
+  if (data === undefined) data = '#html-content';
 
   // loop through all data
   $.each($(data).children(), function() {
@@ -37,13 +37,13 @@ function createHtml(element) {
 
   var startingTag = element.prop('outerHTML').substring(0, element.prop('outerHTML').indexOf('>') + 1);
   var tagName = '';
-  if(startingTag.indexOf(' ') > -1)
+  if (startingTag.indexOf(' ') > -1)
     tagName = startingTag.substring(1, startingTag.indexOf(' '));
   else
     tagName = startingTag.substring(1, startingTag.indexOf('>'));
   var formattedTag = '&lt;<span class="tag">' + tagName + '</span>attributes&gt;';
 
-  attributesString = '';
+  var attributesString = '';
   $.each(element.prop('attributes'), function() {
     attributesString += ' ' + this.nodeName + '=';
     attributesString += '<span class="attribute-value">"' + this.nodeValue + '"</span>';
