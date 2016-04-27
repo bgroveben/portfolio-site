@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parent Child Relationships</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 32px;
+      }
+      div {
+        margin-top: .1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div>First</div>
+      <div>Second</div>
+      <div>Third</div>
+      <div id="target">Fourth (Target)</div>
+      <div>Fifth</div>
+      <div>Sixth</div>
+      <div>Seventh</div>
+    </div>
+
+    <div id="display"></div>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+    <script>
+      $(function() {  // will execute when the page is ready
+        var element = $('#target');
+        var container = $('#container');
+        var index = container.children().index(element);
+        $('#display').text('Index is ' + index);  // If the item is not found, 'Index is -1' will be displayed
+        // get returns a DOM element, not a jQuery object, so the following code throws a TypeError
+        // container.children().get(index).attr('style', 'color:red');
+        // Try this instead:
+        var foundElement = container.children().get(index);
+        // convert to a jQuery object
+        var jQueryObject = $(foundElement);
+        jQueryObject.attr('style', 'color:red');
+        // If you're into method chaining, the previous three lines can be distilled into:
+        $(container.children().get(index)).attr('style', 'color:red');
+      });
+    </script>
+  </body>
+</html>
