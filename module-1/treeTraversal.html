@@ -19,7 +19,6 @@
       <div class="col-sm-4 col-sm-offset-1">
         <p><strong>Next and previous</strong></p>
         <p>prev() and next() move to either the prior or the next element, respectively.</p>
-
         <div class="btn btn-success" id="prev-button">
           $('#target').prev().addClass('highlight');
         </div>
@@ -29,7 +28,6 @@
 
         <p><strong>prevAll and nextAll</strong></p>
         <p>prevAll() and nextAll() will select all siblings (elements on the same level of the DOM hierarchy) prior to or after the current element, respectively.</p>
-
         <div class="btn btn-success" id="prev-all-button">
           $('#target').prevAll().addClass('highlight');
         </div>
@@ -39,19 +37,33 @@
 
         <p><strong>prevUntil and nextUntil</strong></p>
         <p>prevUntil and nextUntil will select all elements before or after the current element, up to but <strong>not including</strong> the element that matches the selector passed into the method.</p>
-
         <div class="btn btn-success" id="prev-until-button">
           $('#target').prevUntil('.flag').addClass('highlight');
         </div>
         <div class="btn btn-success" id="next-until-button">
           $('#target').nextUntil('.flag').addClass('highlight');
         </div>
-
       </div>
-      <div>
-
+      <div class="col-sm-7">
+        <p><strong>HTML</strong></p>
+        <div id="html-content">
+          <div class="parent">
+            <div class="flag">First</div>
+            <div>Second</div>
+            <div>Third</div>
+            <div id="target">Fourth</div>
+            <div>Fifth</div>
+            <div>Sixth</div>
+            <div class="flag">Seventh</div>
+          </div>
+        </div>
       </div>
     </div>
+    <h4>Notes</h4>
+    <p>You can review the jQuery used to create this demo. You will notice that each click event handler has a call to a helper function to clear the highlight. This exists because there is no guaranteed order of event handler execution, so there is no way to ensure that the <i>highlight</i> class is removed before it is added on to the appropriate items.</p>
+    <p>It is also worth noting that you could make all of the buttons dynamic by reading the text on each button and passing that value into jQuery. I didn't do that because I wanted to show the actual jQuery syntax in the source code.</p>
+    <p>Speaking of code cleanup, you will also notice the displayHtml helper function, which maintains the sample HTML while also displaying it on the page. This was created as a way to show the HTML and make the demonstration easier to understand. There are other third party plugins that can do things like that, and they probably use cleaner code than I wrote. My goal was to simply provide a nice little interactive demo.</p>
+    <p>I have offloaded the CSS and utility JavaScript to <a href="http://codepen.io/GeekTrainer/pen/xGBvYK">this pen</a>.</p>
   </div>
 
   <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
