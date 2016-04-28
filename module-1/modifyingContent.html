@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <title>Modifying and Removing Attributes</title>
+    <title>Modifying Text and HTML</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <style>
       body {
@@ -15,19 +15,17 @@
   </head>
   <body>
 
-    <div id="target">Demo Element</div>
+    <div id="textTarget">Demo Element</div>
+    <div id="textWithTagsTarget">Demo Element</div>
+    <div id="htmlTarget">Demo Element</div>
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 
     <script>
       $(function() {  // will execute when the page is ready
-        // update attribute value
-        $('#target').attr('style', 'color:red');
-        // read attribute value
-        var style = $('#target').attr('style');
-        alert(style);
-        // remove attribute
-        $('#target').removeAttr('style');
+        $('#textTarget').text('Updated!');
+        $('#textWithTagsTarget').text('<u>Updated With Visible HTML Tags!</u>')
+        $('#htmlTarget').html('<u>Updated With Underline!</u>')
       });
     </script>
   </body>
