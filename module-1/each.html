@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Each Demo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      ul {
+        font-size: 20px;
+        margin: 0;
+      }
+      span {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .example {
+        font-style: bold;
+        color: red;
+        font-size: 32px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      To do list: <span>(click here to change)</span>
+      <ul>
+        <li>Code</li>
+        <li>Eat</li>
+        <li>Sleep</li>
+      </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+    <script>
+      $(function() {  // will execute when the page is ready
+        $('span').click(function() {
+          $('li').each(function() {
+            $(this).toggleClass("example");
+            // Notes about the 'this' keyword:
+            // this is a DOM object
+            // $(this) is a jQuery object
+            // if you try to use jQuery methods on a DOM object, disappointment will result
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
