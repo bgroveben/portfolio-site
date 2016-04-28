@@ -14,15 +14,32 @@
     </style>
   </head>
   <body>
-
-    <div id="target">Demo Element</div>
-
+    <div class="col-md-5">
+      <div id="hover">Hover Demo Element</div>
+      <div id="mouseout">Mouseout Demo Element</div>
+      <div id="click">Click Demo Element</div>
+      <div id="clickDisplay"></div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 
     <script>
       $(function() {  // will execute when the page is ready
-
+        // hover event -- raised when user moves their mouse over the item
+        $('#hover').hover(function() {
+          $(this).text('Hovering!');
+        }, function() {
+          $(this).text('Hover Demo Element');
+        });
+        // mouseout -- raised when user moves their mouse away from the item
+        $('#mouseout').mouseout(function() {
+          alert('Mouseout!');
+        });
+        // click event -- raised when item is clicked
+        $('#click').click(function() {
+          $(this).text('Click Demo Element Was Clicked!');
+          $('#clickDisplay').text('Click Demo Element Was Clicked!');
+        });
       });
     </script>
   </body>
