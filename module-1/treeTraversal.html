@@ -38,6 +38,17 @@
         </div>
 
         <p><strong>prevUntil and nextUntil</strong></p>
+        <p>prevUntil and nextUntil will select all elements before or after the current element, up to but <strong>not including</strong> the element that matches the selector passed into the method.</p>
+
+        <div class="btn btn-success" id="prev-until-button">
+          $('#target').prevUntil('.flag').addClass('highlight');
+        </div>
+        <div class="btn btn-success" id="next-until-button">
+          $('#target').nextUntil('.flag').addClass('highlight');
+        </div>
+
+      </div>
+      <div>
 
       </div>
     </div>
