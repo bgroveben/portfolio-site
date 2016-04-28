@@ -8,11 +8,39 @@
 </head>
 <body>
   <div class="container">
-    <h5>This exercise is based on a CodePen pen by Christopher Harrison called <a href="http://codepen.io/GeekTrainer/pen/jPJgZK?editors=1010">Interactive demo of jQuery tree traversal methods</a></h5>
+    <h5>This exercise is forked from a CodePen pen by Christopher Harrison called <a href="http://codepen.io/GeekTrainer/pen/jPJgZK?editors=1010">Interactive demo of jQuery tree traversal methods</a></h5>
     <h5>Chris has offloaded the CSS and utility JavaScript to <a href="http://codepen.io/GeekTrainer/pen/xGBvYK">this pen</a>.</h5>
     <h5>I have included Bootstrap and my fork of this pen can be found<a href="http://codepen.io/bgroveben/pen/YqJqKK?editors=1010"> here</a>.</h5>
     <div></div>
     <h3>jQuery Tree Traversal Methods</h3>
+    <p>A demonstration of some common jQuery tree traversal methods.</p>
+    <p>As you can see, the buttons have the jQuery code that will be executed when the buttons are clicked. The div element with the ID of <em>target</em> will be the starting point for all of the demos. The <em>flag</em> class is simply used as a demo class to show off the prevUntil and nextUntil methods.</p>
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-1">
+        <p><strong>Next and previous</strong></p>
+        <p>prev() and next() move to either the prior or the next element, respectively.</p>
+
+        <div class="btn btn-success" id="prev-button">
+          $('#target').prev().addClass('highlight');
+        </div>
+        <div class="btn btn-success" id="next-button">
+          $('#target').next().addClass('highlight');
+        </div>
+
+        <p><strong>prevAll and nextAll</strong></p>
+        <p>prevAll() and nextAll() will select all siblings (elements on the same level of the DOM hierarchy) prior to or after the current element, respectively.</p>
+
+        <div class="btn btn-success" id="prev-all-button">
+          $('#target').prevAll().addClass('highlight');
+        </div>
+        <div class="btn btn-success" id="next-all-button">
+          $('#target').nextAll().addClass('highlight');
+        </div>
+
+        <p><strong>prevUntil and nextUntil</strong></p>
+
+      </div>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
