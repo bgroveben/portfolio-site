@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blur</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 32px;
+      }
+      div {
+        margin-top: .1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>The blur event is sent to an element when it loses focus.</h4>
+    <h4>The .blur() handler will be called when you click on Field 1 and then click or tab away from it.</h4>
+    <h4>You can also trigger the handler by clicking on 'Trigger the handler'.</h4>
+    <br />
+    <form>
+      <input id="target" type="text" value="Field 1">
+      <input type="text" value="Field 2">
+    </form>
+    <div id="other">
+      Trigger the handler
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        $('#target').blur(function(){
+          alert("Handler for .blur() called.");
+          // If the first field has the focus, clicking elsewhere or tabbing away from it displays the alert
+        });
+        // To trigger the event programatically, apply .blur() without an argument
+        // After this code executes, clicking on 'Trigger the handler' will activate the alert message
+        $('#other').click(function() {
+          $('#target').blur();
+        });
+      });
+    </script>
+  </body>
+</html>
