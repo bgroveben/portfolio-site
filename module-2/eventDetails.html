@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Details</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 32px;
+      }
+      div {
+        margin-top: .1em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="target">Event Details</div>
+
+    <div id="display"></div>
+
+    <button type="button">Click Me!</button>
+
+    <div id="output"></div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        // Click anywhere on the div that says 'Event Details' and the mouse click coordinates will be displayed
+        $('#target').click(function(event) {
+          output = "User clicked on " + event.pageX + '/' + event.pageY;
+          $('#display').text(output);
+        });
+        $('button').click(function() {
+          // 'this' is linked to the button that was clicked, but remember, it is a DOM object
+          // convert 'this' to a jQuery object using the jQuery factory
+          $(this).text('Clicked!!');
+        });
+        // Write out the x/y coordinates of the mouse on click
+        $('button').click(function(event) {
+          $('#output').text(event.pageX + 'x by ' + event.pageY + 'y');
+        });
+      });
+    </script>
+  </body>
+</html>
