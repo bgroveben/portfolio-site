@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <title>mouseenter and mouseleave</title>
+    <title>hover</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <style>
       body {
@@ -24,19 +24,23 @@
       <span id="target-help"></span>
     </div>
     <div id="info" class="container hidden">
-      <h4>Neat, huh? This might come in handy when you want to display a tooltip or other contextual information.</h4>
+      <h4>.hover() does what .mouseenter() and .mouseleave() do together.</h4>
+      <h4>To pull this off, just register two event handlers with one call.</h4>
+      <h4>The first parameter is for .mouseenter(), the second is for .mouseleave().</h4>
     </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
 
     <script>
       $(function() {
-        $('#target').mouseenter(function() {
+        $('#target').hover(function() {
+          // mouseenter
           $('#target-help').text('More Data');
-          $('#info').removeClass('hidden');
-        }).mouseleave(function() {
+          $('#info').removeClass("hidden");
+        }, function () {
+          //mouseleave
           $('#target-help').text('');
-          $('#info').addClass('hidden');
+          $('#info').addClass("hidden")
         });
       });
     </script>
