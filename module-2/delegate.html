@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>.delegate()</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>.delegate() allows you to add an event handler for dynamically created future elements.</h4>
+      <form>
+        <div><button type="button" class="btn" id="creator">Create New Button</button></div>
+        <div><button type="button" class="btn updater">Existing Button</button></div>
+        <div id="target"></div>
+      </form>
+      <div id="display"></div>
+      <div class="container">
+        <h4><strong>Note: </strong>With jQuery 1.7+, .delegate() is superseded by .on().</h4>
+        <h4>If you provide an optional second selector parameter, .on() will use delegation to register the event handlers.</h4>
+        <h4>The order of parameters for .on() and .delegate() are different. With on, list events first and selector second. With delegate, it's selector followed by events.</h4>
+      </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        $('#creator').click(function(){
+          $('#target').html('<button type="button" class="btn updater">New Button</button>');
+        });
+        /*
+        This code will execute for the existing button, but not the new one
+        $('button.updater').click(function() {
+          $('#display').text($(this).text() + ' was clicked.');
+        });
+        */
+        // .delegate() requires that you reference the parent element
+        $('form').delegate('button.updater', 'click', function() {
+          $('#display').text($(this).text() + ' was clicked.');
+        });
+      });
+    </script>
+  </body>
+</html>
