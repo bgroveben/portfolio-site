@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamic Event Handlers</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div><button type="button" class="btn validate">First Button</button></div>
+      <div><button type="button" class="btn validate">Second Button</button></div>
+      <div><button type="button" class="btn">Third Button</button></div>
+    </form>
+
+    <div id="display"></div>
+
+    <div id="demo">Click Me!</div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        $('form').on('click', 'button.validate', function() {
+          $('#display').text('Clicked!');
+        });
+        // Just so you know, the following two code blocks do the same thing:
+        $('#demo').on('click', function() { alert('Hello, you clicked?'); });
+        $('#demo').click(function() { alert('Hello, you clicked?'); });
+      });
+    </script>
+  </body>
+</html>
