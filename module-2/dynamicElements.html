@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Delegation and Dynamic Elements</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>First, have a look at the code and guess what's going to happen.</h4>
+      <button>Original Button</button>
+      <h4>When the JavaScript executes, a new button will be created <strong>after</strong> we have registered an event handler for all buttons. Does the new button get the same .click() event handler?</h4>
+      <div id="placeholder"></div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        // register a click event handler with all button elements
+      	$('button').click(function() { alert('Yo, click'); });
+      	// create a new button
+      	$('#placeholder').html('<button>New button</button>');
+      });
+    </script>
+  </body>
+</html>
