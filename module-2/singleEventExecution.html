@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Single Event Execution</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div type="button" class="button" id="target"><button>Click Me First</button></div>
+      <div id="display"></div>
+      <h4>See what happens when you put the button inside form tags:</h4>
+      <form>
+        <div type="button" class="button" id="target"><button>Click Me Second</button></div>
+        <div id="display"></div>
+      </form>
+    </div>
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        /* The following code will allow you to click on the first button multiple times:
+        $('#target').click(function() {
+          $('#display').text($('#display').text() + " Clicked!");
+        });
+        */
+        // This code uses the aptly named .one() function to allow the user to click but once:
+        $('#target').one('click', function() {
+          $('#display').text($('#display').text() + "Clicked!");
+        });
+      });
+    </script>
+  </body>
+</html>
