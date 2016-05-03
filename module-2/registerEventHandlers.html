@@ -7,6 +7,78 @@
     <link href="css/registerEventHandlers.css" rel="stylesheet" />
   </head>
   <body>
+    <div class="container">
+      <h3>This demonstration is a fork of <a href="http://codepen.io/GeekTrainer/pen/d95ba170fb444e4c530d3a07e6ef42ec" target="_blank">Christopher Harrison's CodePen</a></h3>
+      <h2>Event, delegation, and one demonstrations</h2>
+      <p>Each row contains a demonstration.</p>
+      <p>On the left you will see the instructions to walk through the demonstration. Notice that you will click on the code on the left to execute it. Once the code has been executed, it will turn yellow.</p>
+      <p>On the right, you will see the 'targets'. This is where the buttons you will be adding the click event s to will be displayed, as well as a simple output window. Each button will show its ID and any classes.</p>
+      <p>The buttons on the right are not wired up when the page is loaded, meaning the code in the samples has not been executed.</p>
+      <p>The <strong>appendDisplay</strong> helper function finds the clicked item, then finds the <strong>ol</strong> with a class of <strong>display</strong> closest to that button, and then adds the text "Clicked".</p>
+
+      <div class="row">
+        <h3 class="col-sm-8">Code (click to execute):</h3>
+        <h3 class="col-sm-4">Targets</h3>
+      </div>
+
+      <div class="row vertical-align border">
+        <div class="col-sm-8">
+          <h4><strong>.on()</strong> WITHOUT delegation sample</h4>
+
+          <h5>1. Register event handler for all elements with <code>on-no-delegation</code> class by clicking the code below</h5>
+          <pre class="code">
+            $('.on-no-delegation').on('click', appendDisplay);
+          </pre>
+          <h5>2. Click on the right. Notice the text "Clicked" is displayed.</h5>
+          <h5>3. Remove the text and create a new button by clicking the code below.</h5>
+          <pre class="code">
+            $('on-no-delegation').after('&lt;button class="btn btn-info on-no-delegation new"&gt;&lt;/button&gt;');
+          </pre>
+          <h5>4. Click the second button (the one at the bottom). Notice that there is no new text displayed. Clicking on the first button still works.</h5>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-info on-no-delegation"></button>
+          <ol class="display"></ol>
+        </div>
+      </div>
+
+      <div class="row vertical-align border">
+        <div class="col-sm-8">
+          <h4><strong>.on()</strong> WITH delegation sample</h4>
+
+          <h5>1. Register event handler for all elements with <code>on-delegation</code> class by clicking the code below. Notice the change in the .on() function call. Also notice that we are using <code>document</code> as the base. You could use a different parent if it is appropriate.</h5>
+          <pre class="code">
+            $(document).on('click', '.on-delegation', appendDisplay);
+          </pre>
+          <h5>2. Click the button on the right. Notice the text "Clicked" is displayed.</h5>
+          <h5>Remove the text and create a new button by clicking the code below.</h5>
+          <pre class="code">
+            $('.on-delegation').after('&lt;button class="btn btn-info on-delegation new"&gt;&lt;/button&gt;');
+          </pre>
+          <h5>4. click the second button (the one at the bottom). Notice that the new text is displayed.</h5>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-info on-delegation"></button>
+          <ol class="display"></ol>
+        </div>
+      </div>
+
+      <div class="row vertical-align border">
+        <div class="col-sm-8">
+          <h4><strong>.one()</strong> sample</h4>
+          <h5>1. Register event handler for all elements with <code>one</code> class by clicking the code below.</h5>
+          <pre class="code">
+            $('.one').one('click', appendDisplay);
+          </pre>
+          <h5>2. Click the button on the right. Notice the text "Clicked" is displayed. Notice that if you click the button again no new text is displayed.</h5>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-info one"></button>
+          <ol class="display"></ol>
+        </div>
+      </div>
+
+    </div>
 
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
