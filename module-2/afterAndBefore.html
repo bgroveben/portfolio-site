@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <title>Prepending and Appending</title>
+    <title>After and Before</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <style>
       body {
@@ -18,7 +18,7 @@
   </head>
   <body>
     <div class="container">
-      <h4>.prepend() and .append()</h4>
+      <h4>.before() and .after()</h4>
 
       <div><button type="button" id="target" class="btn btn-primary">Add Stuff</button></div>
 
@@ -32,8 +32,8 @@
     <script>
       $(function() {
         $('#target').click(function() {
-          $('#display').prepend('<div>.prepend() adds stuff to the beginning and is inside the div class red.</div>');
-          $('#display').append('<div>.append() adds stuff to the end and is inside the div class red.</div>');
+          $('#display').before('<div>.before() adds stuff to the beginning and is outside of the div class red.</div>');
+          $('#display').after('<div>.after() adds stuff to the beginning and is outside of the div class red.</div>');
         });
       });
     </script>
