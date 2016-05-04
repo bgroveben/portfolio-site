@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prepending and Appending</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <div><button type="button" id="target" class="btn btn-primary">Add Stuff</button></div>
+
+      <div id="display">
+        <div>Existing content that was already here.</div>
+      </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        $('#target').click(function() {
+          $('#display').prepend('<div>.prepend() adds stuff to the beginning.</div>');
+          $('#display').append('<div>.append() adds stuff to the end.</div>');
+        });
+      });
+    </script>
+  </body>
+</html>
