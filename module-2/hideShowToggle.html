@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>.hide() .show() .toggle()</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+      #hideBox {
+        height: 5em;
+        width: 5em;
+        background-color: red;
+        color: white;
+      }
+      #showBox {
+        height: 5em;
+        width: 5em;
+        background-color: green;
+        color: white;
+        display: none;
+      }
+      #toggleBox {
+        height: 5em;
+        width: 5em;
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>This is a demonstration of .hide(), .show(), and .toggle(). Yes, you guessed it, .toggle() alternates between .hide() and .show().</h4>
+      <h4>I'm playing with the duration parameter; other options can be found in <a href="https://api.jquery.com/toggle/#toggle-options" target="_blank">the jQuery documentation</a>.</h4>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div><button type="button" class="btn" id="hide">.hide()</button></div>
+          <div id="hideBox">Demo Content</div>
+        </div>
+        <div class="col-md-4">
+          <div><button type="button" class="btn" id="show">.show()</button></div>
+          <div id="showBox">Demo Content</div>
+        </div>
+        <div class="col-md-4">
+          <div><button type="button" class="btn" id="toggle">.toggle()</button></div>
+          <div id="toggleBox">Demo Content</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        $('#hide').click(function() {
+          $('#hideBox').hide(250);
+        });
+        $('#show').click(function() {
+          $('#showBox').show(500);
+        });
+        $('#toggle').click(function() {
+          $('#toggleBox').toggle(1000);
+        });
+      });
+    </script>
+  </body>
+</html>
