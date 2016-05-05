@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <title>.wrap()</title>
+    <title>.wrapAll()</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/displayHtml.css" rel="stylesheet" />
     <style>
@@ -19,8 +19,8 @@
   </head>
   <body>
     <div class="container">
-      <h4>You need to have your browser's developer tools open to see this in action. Make sure the html elements are visible, click the .wrap() button, and see what happens.</h4>
-      <div class="text-center"><button type="button" class="btn btn-primary" id="wrap">.wrap()</button></div>
+      <h4>You need to have your browser's developer tools open to see this in action. Make sure the html elements are visible, click the .wrapAll() button, and see what happens.</h4>
+      <div class="text-center"><button type="button" class="btn btn-primary" id="wrapAll">.wrapAll()</button></div>
     </div>
     <div class="container">
       <div class="demo">Item One</div>
@@ -30,8 +30,8 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
     <script>
       $(function() {
-        $('#wrap').click(function() {
-          $('.demo').wrap('<section class="red"></section>');
+        $('#wrapAll').click(function() {
+          $('.demo').wrapAll('<section class="red"></section>');
         });
       });
     </script>
