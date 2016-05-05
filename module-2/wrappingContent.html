@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wrapping Content</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/displayHtml.css" rel="stylesheet" />
+    <style>
+    .btn {
+      font-weight: bold;
+      margin: 3px;
+      font-size: 1.1em;
+      color: black;
+    }
+    .vertical-align {
+      display: flex;
+      align-items: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4 class="text-center">This file is (once again) cribbed/copied from a CodePen by Christopher Harrison. You can find the original <a href="http://codepen.io/GeekTrainer/pen/1ad611909eeab30a35f0ba0b0b44aa07" target="_blank">here.</a></h4>
+      <div class="row">
+        <h4>Wrapping functions</h4>
+        <p>As we saw earlier, jQuery provides three separate functions for wrapping existing content with new elements. The difference between the three may appear to be subtle, but will have a large impact on the resulting DOM. These demos are designed to show
+          you the wrapping functions in action and the differences between them.</p>
+      </div>
+      <div class="row vertical-align">
+        <div class="col-sm-6">
+          <h4>.wrap()</h4>
+          <p>.wrap() will surround each element with the new content. Notice when you click the button below that each <strong>div.demo</strong> element is surrounded with a new <strong>section</strong> element.</p>
+
+          <div class="btn btn-success btn-code">$('div.demo').wrap('&lt;section /&gt;');
+          </div>
+
+          <h4>.wrapAll()</h4>
+          <p>.wrapAll() will surround the entire group of returned elements with the new content. Notice when you click the button below that all of the <strong>div.demo</strong> elements are surrounded with one new <strong>section</strong> element.</p>
+
+          <div class="btn btn-success btn-code">$('.demo').wrapAll('&lt;section /&gt;')
+          </div>
+
+          <h4>.wrapInner()</h4>
+          <p>.wrapInner() will open each of the returned elements, find their children, and surround each of the children with the new content. In this example, we will wrap all of the <strong>div</strong> elements inside of <strong>#parent</strong> with a new section.</p>
+
+          <div class="btn btn-success btn-code">$('#parent').wrapInner('&lt;section /&gt;')
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div id="html-content">
+            <div id="parent">
+              <div class="demo"></div>
+              <div class="demo"></div>
+              <div class="notDemo"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="js/displayHtml.js"></script>
+    <script>
+      $(function() {
+        $('.btn-code').click(function() {
+          resetHtml();
+          eval($(this).text());
+          displayHtml();
+        });
+      });
+    </script>
+
+  </body>
+</html>
