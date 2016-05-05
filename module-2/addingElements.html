@@ -7,6 +7,94 @@
   </head>
 
   <body>
+    <div class="container">
+      <h4 class="text-center">This demonstration is a clone of Christopher Harrison's CodePen titled <a href="http://codepen.io/GeekTrainer/pen/1afc4d560d697b40f26e48b7b24a7f4e?editors=1000" target="_blank">jQuery DOM manipulations.</a></h4>
+      <h2 class="text-center">DOM Manipulation Demonstration</h2>
+      <p>Below is an interactive exercise that will demonstrate <code>before</code>, <code>after</code>, <code>append</code>, <code>prepend</code>, and their associated functions.</p>
+      <p>To use the interface, type the new element you wish to create in <strong>New element</strong> (with the starting and ending tags, and whatever ID an attributes you wish to give it). <strong>Make sure you use double quotes around the attribute values, not single quotes.</strong></p>
+      <p>Then, type the ID of the element you wish to target in <strong>Target id</strong>. All of the buttons will reflect the code that they will execute.</p>
+      <p>To execute the code, simply click the button. The HTML is at the bottom (you have to scroll down to see it). The starting HTML consists of one <strong>div</strong> element with an id of <strong>starter</strong>. The HTML will continue to update throughout the demo, allowing you to test the various functions and see how to create the HTML you will need to use in your own pages.</p>
+
+      <form class="form-horizontal">
+
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="new-element">New element:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="new-element" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="target-id">Target id:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="target-id" autocomplete="off" />
+          </div>
+        </div>
+
+        <h4 class="text-center"> .before() and .insertBefore()</h4>
+        <div class="form-group">
+          <label class="control-label col-sm-3">before:</label>
+          <button type="button" class="btn col-sm-9 btn-execute" id="btn-before">&nbsp;</button>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">insertBefore</label>
+          <button type="button" class="btn col-sm-9" id="btn-insertBefore">&nbsp;</button>
+        </div>
+
+        <h4 class="text-center">.after() and .insertAfter()</h4>
+        <div class="form-group">
+          <label class="control-label col-sm-3">after:</label>
+          <button type="button" class="btn col-sm-9 btn-execute" id="btn-after">&nbsp;</button>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">insertAfter</label>
+          <button type="button" class="btn col-sm-9" id="btn-insertAfter">&nbsp;</button>
+        </div>
+
+        <h4 class="text-center">.prepend() and .prependTo()</h4>
+        <div class="form-group">
+          <label class="control-label col-sm-3">prepend:</label>
+          <button type="button" class="btn col-sm-9" id="btn-prepend">&nbsp;</button>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">prependTo:</label>
+          <button type="button" class="btn col-sm-9" id="btn-prependTo">&nbsp;</button>
+        </div>
+
+        <h4 class="text-center">.append() and .appendTo()</h4>
+        <div class="form-group">
+          <label class="control-label col-sm-3">append:</label>
+          <button type="button" class="btn col-sm-9" id="btn-append">&nbsp;</button>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">appendTo:</label>
+          <button type="button" class="btn col-sm-9" id="btn-appendTo">&nbsp;</button>
+        </div>
+
+      </form>
+
+      <div class="row">
+        <h3 class="text-center">Executed code: <span style="font-family:verdana" id="output"></span></h3>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="text-center">Starting HTML</h4>
+          <div id="html-content-starting" class="html-content">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <h4 class="text-center">Resulting HTML</h4>
+          <div id="html-content">
+            <div id="starter"></div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Some Notes</h4>
+      <p>When you look at the JavaScript for this demo, you will notice that it is NOT the straight method calls that are being demonstrated. The reason for that is to make writing the demo easier as well as to ensure that the buttons stay dynamic and the HTML remains 'prettified'. <strong>However</strong>, the code that is on the buttons is the actual code that is executed.</p>
+
+    </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
     <script src="js/addingElements.js"></script>
