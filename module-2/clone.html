@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>.clone()</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>.clone() allows you to make copies of jQuery objects. Be careful, because you may not always want to make identical copies of objects, for example cloning attributes like ID.</h4>
+      <div><button type="button" class="btn btn-primary" id="clone">.clone()</button></div>
+      <!-- We want to clone the div directly below, but we don't want the copies to contain 'id="dialog"'. -->
+      <div id="dialog">.clone() Demo Element</div>
+
+      <div id="container">
+        <!-- We want the copies to go inside this div and below this comment. -->
+      </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        // find the dialog element, clone it, and put it into a variable
+        var $dialog = $('#dialog').clone();  // the $ in the variable name isn't necessary, it just identifies the variable as a jQuery object
+        $dialog.removeAttr('id');  // get rid of the ID attribute in each of the copies
+
+        $('#clone').click(function() {
+          $('#container').append($dialog.clone());
+        });
+      });
+    </script>
+  </body>
+</html>
