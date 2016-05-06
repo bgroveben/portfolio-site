@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fading</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+      #disappear {
+        height: 5em;
+        width: 5em;
+        background-color: red;
+        color: white;
+      }
+      #appear {
+        height: 5em;
+        width: 5em;
+        background-color: green;
+        color: white;
+        display: none;
+      }
+      #toggle {
+        height: 5em;
+        width: 5em;
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>Fading in, fading out, and toggling fade. Why use fade instead of hide/show?</h4>
+      <h4>Slow down the animation to 10 seconds, and you will see hide/show resize the demo box, while fade just, well, fades. Subtle, but different.</h4>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div><button type="button" class="btn" id="fadeOut">.fadeOut()</button></div>
+          <div id="disappear">Demo Content</div>
+        </div>
+        <div class="col-md-4">
+          <div><button type="button" class="btn" id="fadeIn">.fadeIn()</button></div>
+          <div id="appear">Demo Content</div>
+        </div>
+        <div class="col-md-4">
+          <div><button type="button" class="btn" id="fadeToggle">.fadeToggle()</button></div>
+          <div id="toggle">Demo Content</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        $('#fadeOut').click(function() {
+          $('#disappear').fadeOut(250);
+        });
+        $('#fadeIn').click(function() {
+          $('#appear').fadeIn(500);
+        });
+        $('#fadeToggle').click(function() {
+          $('#toggle').fadeToggle(1000);
+        });
+      });
+    </script>
+  </body>
+</html>
