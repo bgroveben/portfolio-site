@@ -79,13 +79,13 @@
      colorCircles();
 
      $('#update-max-value').parent().delegate('#update-max-value', 'click', function() {
-       var circle = 0;
+       var numberOfCircles = 0;
        $('#rating-container').empty();
        maxValue = $('#max-value').val();
        $('rating-container').attr('max-value', maxValue);
-        while (circle < maxValue) {
+        while (numberOfCircles < maxValue) {
          $('#rating-container').append('<div class="rating-circle"></div>');
-         circle++;
+         numberOfCircles++;
        }
        colorCircles();
      });
