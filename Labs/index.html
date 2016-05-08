@@ -37,7 +37,7 @@
   <h3>Rate this session</h3>
   <div id="rating-container" max-value="5">
   </div>
-  
+
   <div>
     <label for="max-value">Enter max value:</label>
     <input type="text" id="max-value" />
@@ -48,6 +48,10 @@
    <script>
 
    $(function() {
+     var maxValue = 5;
+     for (var i = 0; i < maxValue; i++) {
+       $('#rating-container').append('<div class="rating-circle"></div>');
+     }
      var rating;
      $('.rating-circle').hover(function() {
        $('#rating-container').children().removeClass('rating-chosen');
@@ -63,6 +67,34 @@
        $(this).children().removeClass('rating-hover');
        $(rating).addClass('rating-chosen');
        $(rating).prevAll().addClass('rating-chosen');
+     });
+
+     $('#update-max-value').parent().delegate('#update-max-value', 'click', function() {
+       var circle = 0;
+       $('#rating-container').empty();
+       maxValue = $('#max-value').val();
+       $('rating-container').attr('max-value', maxValue);
+        while (circle < maxValue) {
+         $('#rating-container').append('<div class="rating-circle"></div>');
+         circle++;
+       }
+
+       var rating;
+       $('.rating-circle').hover(function() {
+         $('#rating-container').children().removeClass('rating-chosen');
+         $(this).addClass('rating-hover');
+         $(this).prevAll().addClass('rating-hover');
+       });
+       $('.rating-circle').click(function() {
+         rating = $(this);
+         $(this).addClass('rating-chosen');
+         $(this).prevAll().addClass('rating-chosen');
+       });
+       $('#rating-container').mouseout(function() {
+         $(this).children().removeClass('rating-hover');
+         $(rating).addClass('rating-chosen');
+         $(rating).prevAll().addClass('rating-chosen');
+       });
      });
    });
 
