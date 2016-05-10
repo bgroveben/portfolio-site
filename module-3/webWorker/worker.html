@@ -6,7 +6,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <style>
       body {
-        font-size: 26px;
+        font-size: 24px;
         font-family: Verdana;
       }
       div {
@@ -16,21 +16,48 @@
       .btn {
         font-size: 1em;
       }
-      .form-control {
-        font-size: 1em;
-      }
     </style>
   </head>
   <body>
     <div class="container">
-      <div id="target">Demo Element</div>
+      <h4>This Web Worker Demo will not run in recent versions of Google Chrome unless you adjust some security settings. See <a href="http://www.html5rocks.com/en/tutorials/workers/basics/#toc-security" target="_blank">this section</a> from "The Basics of Web Workers" by Eric Bidelman for more information. Or use another browser. I'm going to use Firefox Developer Edition (yeah, that was a shameless plug. My code...IdowhatIwant).</h4>
+      
+      <h4>Anyhow, type a message in the text box below and the web worker will echo that message back to you. If that sounds boring, you are welcome to get creative and spice things up.</h4>
+      <div>
+        <input type="text" id="message" class="form-control" />
+        <br />
+        <button type="button" class="btn btn-submit" id="send-message" disabled="disabled">Submit</button>
+      </div>
+      <ul id="messages">
+
+      </ul>
     </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
 
     <script>
-      $(function() {
-
+      // $(function() {});  won't be using this
+      var worker = new Worker('worker.js');
+      // Register the message event handler
+      worker.addEventListener('message', function(event) {
+        // simple messaging -- the worker will send a message if and when it is ready
+        if (event.data === "READY") {
+          // print the worker's ready status
+          $('#messages').append('<li>Worker ready</li>');
+          // enable the button and add a click event handler
+          $('#send-message').removeAttr('disabled').click(function() {
+            // send the contents of the textbox to the worker
+            worker.postMessage($('#message').val());
+          });
+          // place the focus on the textbox
+          $('#message').focus();
+        } else {
+          // if the message from the worker isn't READY, it's just a normal message
+          // add the message to the output
+          $('#messages').append('<li>' + event.data + '</li>');
+          // clear the textbox and reset the focus
+          $('#message').val('').focus();
+        }
       });
     </script>
   </body>
