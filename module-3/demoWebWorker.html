@@ -30,9 +30,42 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
 
     <script>
-      $(function() {
+      var worker = new Worker('js/demoWebWorker.js');
 
+      $('#start-worker').click(function() {
+        worker.postMessage('START');
       });
+
+      $('#stop-worker').click(function() {
+        worker.postMessage('STOP');
+      });
+
+      $('#send-message').click(function() {
+        var message = $('#message').val();
+        worker.postMessage(message);
+      });
+
+      worker.addEventListener('message', function(event) {
+        if (event.data === 'STARTED') {
+          // update the screen to display worker started
+          $('#output').append('<div>Worker Started</div>');
+          // disable start button and enable send and stop buttons
+          $('#start-worker').attr('disabled', 'disabled');
+          $('#stop-worker').removeAttr('disabled');
+          $('#send-message').removeAttr('disabled');
+        } else if (event.data === 'STOPPED') {
+          // update the screen to display worker stopped
+          $('#output').append('<div>Worker Stopped</div>');
+          // disable buttons
+          $('#stop-worker').attr('disabled', 'disabled');
+          $('#send-message').attr('disabled', 'disabled');
+          worker = null;
+        } else {
+          // display data on screen
+          $('#output').append('<div>' + event.data + '</div>');
+        }
+      });
+
     </script>
   </body>
 </html>
