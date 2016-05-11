@@ -4,11 +4,27 @@
     <meta charset="UTF-8" />
     <title>Web Worker Demo</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/demoWebWorker.css" />
+    <link href="css/demoWebWorker.css" rel="stylesheet"/>
   </head>
   <body>
     <div class="container">
-      <div id="target">Demo Element</div>
+      <h4>This demo is once again ripped off/borrowed/copied from Christopher Harrison's CodePen that can be found <a href="http://codepen.io/GeekTrainer/pen/914299e6605a96abc45b78becff9ec25?editors=1100" target="_blank">here</a>.</h4>
+      <h4>Thank You Christopher!</h4>
+      <div>
+        &nbsp;
+      </div>
+      <div>
+        <button type="button" id="start-worker" class="btn btn-primary">Start Worker</button>
+        <button type="button" id="stop-worker" class="btn btn-primary" disabled="disabled">Stop Worker</button>
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <input type="text" id="message" class="form-control" />
+        <button type="button" id="send-message" class="btn btn-primary" disabled="disabled">Send Message</button>
+      </div>
+      <div id="output">
+        <h3>Messages Here:</h3>
+      </div>
     </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
