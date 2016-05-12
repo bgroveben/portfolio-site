@@ -11,11 +11,17 @@
       div {
         margin-top: 1em;
       }
+      .btn {
+        font-size: 1em;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <div id="target">Demo Element</div>
+      <div>
+        <button type="button" class="btn btn-submit" id="start-worker">Start Worker</button>
+      </div>
+      <ul id="messages"></ul>
     </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
