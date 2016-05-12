@@ -27,9 +27,45 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
 
     <script>
-      $(function() {
-
-      });
+      // this part deals with the UI -- https://en.wikipedia.org/wiki/Separation_of_concerns
+      $(function() {  // unlike a promise, we will be using the jQuery document ready function
+        $('#start-worker').click(function() {
+          // get promise
+          var promise = beginProcessing();
+          // register our event handlers
+          promise.progress(function(message) {
+            // update the UI to display progress
+            $('#messages').append('<li>Progress:' + message + '</li>');
+          }).done(function(message) {
+            // update the UI to display completion
+            $('#messages').append('<li>Completion' + message + '</li>');
+          });
+        });
+      })
+      // this part deals with the worker -- https://en.wikipedia.org/wiki/Separation_of_concerns
+      // create worker implementation using deferred
+      function beginProcessing() {
+        // create deferred object and make sure it will be in scope
+        var deferred = new $.Deferred();
+        // call script that creates worker
+        var worker = new Worker('js/deferred.js');
+        // register the message event handler
+        worker.addEventListener('message', function(event) {
+          if (event.data === 'READY') {
+            // no UI code -- https://en.wikipedia.org/wiki/Separation_of_concerns
+            // progress notification
+            deferred.notify('Worker Started');
+          } else if (event.data === 'COMPLETED') {
+            // processing is done
+            // no UI code -- look up https://en.wikipedia.org/wiki/Separation_of_concerns again
+            // completed notification
+            deferred.resolve('Worker Completed');
+            worker.terminate();
+          }
+        });
+        // we set up an event listener earlier, so don't return the deferred object, just the promise
+        return deferred.promise();
+      }
     </script>
   </body>
 </html>
