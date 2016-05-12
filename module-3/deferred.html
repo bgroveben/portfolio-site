@@ -18,10 +18,15 @@
   </head>
   <body>
     <div class="container">
+      <h4>The <code>jQuery.Deferred()</code> factory creates a new <code>deferred</code> object.</h4>
+      <h4>It is probably best for you to just look this one up in the jQuery docs <a href="https://api.jquery.com/category/deferred-object/" target="_blank">here</a> and <a href="https://api.jquery.com/jQuery.Deferred/" target="_blank">then here</a>.</h4>
       <div>
-        <button type="button" class="btn btn-submit" id="start-worker">Start Worker</button>
+        <button type="button" class="btn btn-primary" id="start-worker">Start Worker</button>
       </div>
-      <ul id="messages"></ul>
+      <h4>Pressing the button will start a process that takes three seconds to complete. A message is displayed when <code>deferred.promise()</code> is used to return a promise object.</h4>
+      <div>
+        <ul id="messages"></ul>
+      </div>
     </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
@@ -35,10 +40,10 @@
           // register our event handlers
           promise.progress(function(message) {
             // update the UI to display progress
-            $('#messages').append('<li>Progress:' + message + '</li>');
+            $('#messages').append('<li>Progress: ' + message + '</li>');
           }).done(function(message) {
             // update the UI to display completion
-            $('#messages').append('<li>Completion' + message + '</li>');
+            $('#messages').append('<li>Completion: ' + message + '</li>');
           });
         });
       })
