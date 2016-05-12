@@ -54,7 +54,20 @@
 
     <script>
       $(function() {
-
+        $('#serialize').click(function() {
+          // create object with user input
+          var person = new Object();
+          person.firstName = $('#first-name').val();
+          person.lastName = $('#last-name').val();
+          // now serialize
+          var jsonString = JSON.stringify(person);
+          $('#raw-json').val(jsonString);
+        });
+        $('#deserialize').click(function() {
+          var jsonString = $('#raw-json').val();
+          var person = JSON.parse(jsonString);
+          $('#person').html('<br />First Name: ' + person.firstName + '<br />Last Name: ' + person.lastName);
+        });
       });
     </script>
   </body>
