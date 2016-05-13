@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery .get() Demo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-size: 18px;
+      }
+      div {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>For this demo to work, you need to fire up your server and open this file on your localhost at whichever port. I use the Mac's default PHP server, so I navigate to the directory that this file is in, open a separate tab in the console, and type</h4>
+      <h4>[=><code> php -S localhost:8000</code></h4>
+      <h4>Now, go to your browser's search bar and enter <code>http://localhost:8000/your-filename.html</code></h4>
+      <h4>You must open the demo file using <code>http://</code> (NOT https) since Ajax makes HTTP requests.</h4>
+      <h4>Did you get all of that? If you are still having issues, I found the links <a href="http://www.tutorialrepublic.com/jquery-tutorial/jquery-ajax-get-and-post-requests.php" target="_blank">here</a> and <a href="http://www.tutorialrepublic.com/jquery-tutorial/jquery-ajax-load.php" target="_blank">here</a> to be helpful. You can also do a Google search for 'jQuery Ajax' and 'jQuery get'.</h4>
+      <p>&nbsp;</p>
+      <h4>All right, on to the demo.</h4>
+      <p>&nbsp;</p>
+      <div id="result">
+        <h4>Content of the result DIV container will be replaced by the server date and time.</h2>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary" id="date-time">Load Date and Time</button>
+      </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+
+    <script>
+      $(function() {
+        $('#date-time').click(function() {
+          $.get('date-time.php', function(data) {
+            // Display data returned from the php file in the browser
+            $('#result').html(data);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
