@@ -15,6 +15,7 @@
   </head>
   <body>
     <div class="container">
+      <h4>This is a simple demo in which jQuery uses the <code>.getJSON()</code> method to get information from a JSON file and display it in the corresponding text boxes. Just hit the button.</h4>
       <div>
         <label for="first-name">First Name:</label>
         <input type="text" class="form-control" id="first-name" />
@@ -33,7 +34,7 @@
     <script>
       $(function() {
         $('#execute').click(function() {
-          $.getJSON('/api/Demo', function(person) {
+          $.getJSON('json/getJson.json', function(person) {
             $('#first-name').val(person.firstName);
             $('#last-name').val(person.lastName);
           });
