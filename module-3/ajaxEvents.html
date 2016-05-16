@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <title>Ajax and jQuery .post()</title>
+    <title>Ajax Events</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <style>
       body {
@@ -15,8 +15,8 @@
   </head>
   <body>
     <div class="container">
-      <h4>jQuery's <code>.post()</code> function uses the HTTP POST verb to send data both in the URL and in the header. Like <code>.getJSON()</code>, it also passes the JSON object returned by the server into the parameter for the event handler.</h4>
-      <h4>Enter a first and last name into the input boxes and hit the button. The first and last names will be saved as JSON objects and be displayed below the button. </h4>
+      <h4>When making Ajax calls, you may need to update the content of a page or change the availability of controls such as buttons when calls start or complete. This file deals with a start event, <code>.ajaxSend()</code>, and a completion event, <code>ajaxComplete()</code>.</h4>
+      <h4>Enter the first and last names in the input box. After the button is pushed, <code>.ajaxSend()</code> will tell the button to disable itself once the ajax call is sent (instead of you telling the user to only click once), and then <code>.ajaxComplete()</code> will post a message saying that the call has completed.</h4>
       <div>
         <label for="first-name">First Name:</label>
         <input type="text" class="form-control" id="first-name" />
@@ -42,6 +42,11 @@
           $.post('ajaxPost.html', person).done(function(data) {
             $('#output').text(person.firstName + ' ' + person.lastName + ' was here.');
           });
+        });
+        $(document).ajaxSend(function() {
+          $('#execute').attr('disabled', 'disabled');
+        }).ajaxComplete(function() {
+          $('#output').append('<div>Call Completed</div>')
         });
       });
     </script>
