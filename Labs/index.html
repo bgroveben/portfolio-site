@@ -95,6 +95,12 @@
        }
        colorCircles();
      });
+     $('#save-rating').click(function() {
+       var message = { value: value, maxValue: maxValue };
+       $.post('http://jquery-edx.azurewebsites.net/api/Rating', message).done(function(data) {
+         $('#output').text(data.message);
+       });
+     });
    });
 
    </script>
