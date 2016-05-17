@@ -78,6 +78,7 @@
        });
      }
 
+     var value = 0;
      var maxValue = 5;
      for (var i = 0; i < maxValue; i++) {
        $('#rating-container').append('<div class="rating-circle"></div>');
@@ -85,7 +86,6 @@
      colorCircles();
 
      $('#update-max-value').parent().delegate('#update-max-value', 'click', function() {
-       var value = 0;
        $('#rating-container').empty();
        maxValue = $('#max-value').val();
        $('rating-container').attr('max-value', maxValue);
