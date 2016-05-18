@@ -54,11 +54,27 @@
    <script>
 
    $(function() {
-     /* I chose a function declaration instead of a function expression:
-     => var colorCircles = function(){};
-     just in case I need to move it to the end of the jQuery script and use it before I declare it.
-     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
-     */
+     // initialize maximum rating (max value) to be 5 circles and user's rating (value) to 0
+     // the variable names 'value' and 'maxValue' are specific to the server-side code
+     var value = 0;
+     var maxValue = 5;
+     for (var i = 0; i < maxValue; i++) {
+       $('#rating-container').append('<div class="rating-circle"></div>');
+     }
+     colorCircles();
+     // allow user to change max value
+     $('#update-max-value').parent().delegate('#update-max-value', 'click', function() {
+       $('#rating-container').empty();
+       maxValue = $('#max-value').val();
+       $('rating-container').attr('max-value', maxValue);
+       while (value < maxValue) {
+         $('#rating-container').append('<div class="rating-circle"></div>');
+         value++;
+       }
+     colorCircles();
+     });
+     // allow user to select number of circles (rating)
+     // circles are highlighted yellow on hover and will remain green when clicked
      function colorCircles() {
        var rating;
        $('.rating-circle').hover(function() {
@@ -77,24 +93,7 @@
          $(rating).prevAll().addClass('rating-chosen');
        });
      }
-
-     var value = 0;
-     var maxValue = 5;
-     for (var i = 0; i < maxValue; i++) {
-       $('#rating-container').append('<div class="rating-circle"></div>');
-     }
-     colorCircles();
-
-     $('#update-max-value').parent().delegate('#update-max-value', 'click', function() {
-       $('#rating-container').empty();
-       maxValue = $('#max-value').val();
-       $('rating-container').attr('max-value', maxValue);
-        while (value < maxValue) {
-         $('#rating-container').append('<div class="rating-circle"></div>');
-         value++;
-       }
-       colorCircles();
-     });
+     // allow user to submit rating to server
      $('#save-rating').click(function () {
        var parameter = {
          value: $('.rating-chosen').length,
