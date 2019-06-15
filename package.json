@@ -1,0 +1,56 @@
+{
+    "title": "Portfolio Page",
+    "name": "my_profile",
+    "version": "0.1.1",
+    "scripts": {
+        "start": "gulp watch"
+    },
+    "description": "Ripping off a Bootstrap 4 template to create a personal portfolio page.",
+    "keywords": [
+        "restaurant",
+        "manager",
+        "resort",
+        "hospitality",
+        "travel",
+        "food",
+        "beverage",
+        "casino",
+        "supervisor"
+    ],
+    "homepage": "https://bgroveben.github.io/",
+    "bugs": {
+        "url": "https://github.com/bgroveben/my_profile",
+        "email": "bgroveben@gmail.com"
+    },
+    "license": "MIT",
+    "author": "bgroveben",
+    "contributors": [
+        "David Miller (http://davidmiller.io/)",
+        "bgroveben (https://bgroveben.github.io/)",
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bgroveben/my_profile"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "5.8.2",
+        "axios": ">=0.18.1",
+        "bootstrap": "4.3.1",
+        "jquery": "3.4.1",
+        "jquery.easing": "^1.4.1"
+    },
+    "devDependencies": {
+        "axios": ">=0.18.1",
+        "browser-sync": "2.26.5",
+        "del": "4.1.1",
+        "gulp": "4.0.2",
+        "gulp-autoprefixer": "6.1.0",
+        "gulp-clean-css": "4.2.0",
+        "gulp-header": "2.0.7",
+        "gulp-plumber": "^1.2.1",
+        "gulp-rename": "1.4.0",
+        "gulp-sass": "4.0.2",
+        "gulp-uglify": "3.0.2",
+        "merge-stream": "2.0.0"
+    }
+}
