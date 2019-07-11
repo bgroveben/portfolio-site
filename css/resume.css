@@ -7,7 +7,7 @@
 body {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   padding-top: 54px;
-  color: #868e96;
+  color: #8f1a1d;
 }
 
 @media (min-width: 992px) {
@@ -26,7 +26,7 @@ h6 {
   font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-weight: 700;
   text-transform: uppercase;
-  color: #333366;
+  color: #271576;
 }
 
 h1 {
@@ -58,7 +58,7 @@ p.lead {
   display: inline-block;
   height: 3.5rem;
   width: 3.5rem;
-  background-color: #4B5A69;
+  background-color: #8f1a1d;
   color: #fff;
   border-radius: 100%;
   text-align: center;
@@ -72,15 +72,20 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #984B43;
+  background-color: #330099;
 }
 
 .dev-icons {
   font-size: 3rem;
+  color: #660066;
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #984B43;
+  color: #ff99ff;
+}
+
+#sideNav {
+  background-color: #ff99ff;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -176,17 +181,17 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #984B43;
+  background-color: #ff99ff;
 }
 
 .text-primary {
-  color: #984B43;
+  color: #8f1a1d;
 }
 
 a {
-  color: #984B43;
+  color: #993366;
 }
 
 a:hover, a:focus, a:active {
-  color: #824027;
+  color: #330099;
 }
